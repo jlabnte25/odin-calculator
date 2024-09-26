@@ -156,6 +156,7 @@ const btnAdd = document.getElementById("+");
         i = 1;
         operate();
         updateDisplayResult();
+        changeActiveOperatorColor();
     });
 
 const btnSubtract = document.getElementById("-");
@@ -166,6 +167,7 @@ const btnSubtract = document.getElementById("-");
         i = 1;
         operate();
         updateDisplayResult();
+        changeActiveOperatorColor();
     });
 
 const btnDivide = document.getElementById("/");
@@ -177,6 +179,7 @@ const btnDivide = document.getElementById("/");
         operate();
         i = 1;
         updateDisplayResult();
+        changeActiveOperatorColor();
     });
 
 const btnMultiply = document.getElementById("*");
@@ -192,12 +195,14 @@ const btnMultiply = document.getElementById("*");
             operate ();
             assignValues();
         }
+        changeActiveOperatorColor();
     });
 
 const btnClear = document.getElementById("clear");
     btnClear.addEventListener ("click",() => {
         operator = "clear";
         operate();
+        changeActiveOperatorColor();
     });
 
 const btnEqual = document.getElementById("=");
@@ -205,6 +210,7 @@ const btnEqual = document.getElementById("=");
         updateResultFirst();
         if (operator === "/" || operator === "*"){
         secondVariable =1;};
+        resetOperatorsToDefaultColors();
     })
 
 
@@ -241,4 +247,27 @@ function deleteLastNumber () {
     displayValue.pop();
 
     updateDisplay();
+}
+
+// Add tracker for active operator
+function changeActiveOperatorColor () {
+    
+    resetOperatorsToDefaultColors ();
+
+if (operator === "+") {
+    btnAdd.style.backgroundColor = "#333"}
+    else if (operator === "-") {
+        btnSubtract.style.backgroundColor = "#333"
+    } else if (operator === "*") {
+        btnMultiply.style.backgroundColor = "#333"
+    } else if (operator === "/") {
+        btnDivide.style.backgroundColor = "#333"
+    } 
+}
+
+function resetOperatorsToDefaultColors () {
+    btnAdd.style.backgroundColor = "";      // Default color
+    btnSubtract.style.backgroundColor = ""; // Default color
+    btnMultiply.style.backgroundColor = ""; // Default color
+    btnDivide.style.backgroundColor = "";   // Default color
 }

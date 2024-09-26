@@ -212,7 +212,8 @@ const btnEqual = document.getElementById("=");
 const display = document.getElementById("display");
 
 function updateDisplay () {
-    display.textContent = displayValue.join('');
+    //display.textContent = displayValue.join('');
+    display.textContent = displayValue.length > 0 ? displayValue.join('') : "0";
 }
 
 function updateDisplayResult () {
@@ -225,4 +226,19 @@ function updateResultFirst () {
         i = 1;
         secondVariable = 0;
         updateDisplayResult();
+}
+
+const deleteBtn = document.getElementById("delete");
+
+deleteBtn.addEventListener("click", deleteLastNumber);
+
+function deleteLastNumber () {
+    if (display.textContent = firstVariable) {
+        operator = "clear";
+        operate();
+    }
+
+    displayValue.pop();
+
+    updateDisplay();
 }

@@ -202,12 +202,9 @@ const btnClear = document.getElementById("clear");
 
 const btnEqual = document.getElementById("=");
     btnEqual.addEventListener ("click", () => {
-        assignValues();
-        operate();
-        i = 1;
-        secondVariable = 0;
-        updateDisplayResult();
-        console.log ("Result", firstVariable);
+        updateResultFirst();
+        if (operator === "/" || operator === "*"){
+        secondVariable =1;};
     })
 
 
